@@ -47,8 +47,7 @@ gantt
     section Detailed Subtasks (Phase 3 — Data Parsing & Analytics)
     3.1: WHO / GBD / PubMed parser   :done, sub3_1, 2026-09-15, 15d
     3.2: 20 NPZ scenario exports      :done, sub3_2, 2026-09-25, 10d
-    3.3: Markov progression analysis  :done, sub3_3, 2026-10-01, 10d
-    3.4: Dashboard & PDF reports      :done, sub3_4, 2026-10-05, 10d
+    3.3: Dashboard & PDF reports      :done, sub3_3, 2026-10-05, 10d
 
     section Detailed Subtasks (Phase 4 — FSI)
     4.1: Submesh extraction           :done, sub4_1, 2026-10-01, 10d
@@ -138,7 +137,6 @@ gantt
 |-----------|-------|--------|--------|
 | WHO / GBD / PubMed parser | Clinical and risk-factor data ingestion | ✅ DONE | Structured dataset |
 | Scenario export | 20 NPZ boundary-condition files | ✅ DONE | `turbine_bc_*.npz` |
-| Markov analysis | Progression modeling and progression risk | ✅ DONE | `markov_cfd_analysis.py` |
 | Dashboard generation | PDF, reports, comparative plots | ✅ DONE | Visualization outputs |
 | **Result** | Clinical parameterization for simulation scenarios | ✅ |
 
@@ -360,3 +358,4 @@ Phase 4 (FSI — Partitioned) 🔄
 ---
 
 **Status:** On track for Q3 2027 delivery
+
