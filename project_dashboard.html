@@ -16,25 +16,23 @@
   <!-- Header -->
   <div class="mb-3">
     <h1 class="text-xl font-bold">Blood Pump CFD &amp; Aortic FSI — Full Project Dashboard</h1>
-    <p class="text-[var(--muted-foreground)] text-xs mt-0.5">Started July 2026 · DolfinX 0.11 · PETSc 3.25 · FreeCAD 1.0 · Gmsh</p>
+    <p class="text-[var(--muted-foreground)] text-xs mt-0.5">Started July 2026 · DolfinX 0.11 · PETSc 3.25 · FreeCAD 1.0 · Gmsh · ParaView</p>
   </div>
 
   <!-- Status row -->
   <div class="flex flex-wrap gap-1.5 mb-4 text-xs">
-    <span class="px-2 py-0.5 rounded-full font-semibold bg-green-500/20 text-green-400">✅ Ph.0 Engine Dev</span>
+    <span class="px-2 py-0.5 rounded-full font-semibold bg-green-500/20 text-green-400">✅ Ph.0 Engine</span>
     <span class="px-2 py-0.5 rounded-full font-semibold bg-green-500/20 text-green-400">✅ Ph.1 Geometry</span>
-    <span class="px-2 py-0.5 rounded-full font-semibold bg-green-500/20 text-green-400">✅ Ph.2 Rigid CFD</span>
-    <span class="px-2 py-0.5 rounded-full font-semibold bg-green-500/20 text-green-400">✅ Ph.3 Data Science</span>
-    <span class="px-2 py-0.5 rounded-full font-semibold bg-yellow-500/20 text-yellow-400">🔄 Ph.4 FSI Active</span>
-    <span class="px-2 py-0.5 rounded-full font-semibold bg-red-500/20 text-red-400">🔴 Ph.5–7 Planned</span>
+    <span class="px-2 py-0.5 rounded-full font-semibold bg-green-500/20 text-green-400">✅ Ph.2 CFD</span>
+    <span class="px-2 py-0.5 rounded-full font-semibold bg-green-500/20 text-green-400">✅ Ph.3 Data</span>
+    <span class="px-2 py-0.5 rounded-full font-semibold bg-yellow-500/20 text-yellow-400">🔄 Ph.4 FSI</span>
+    <span class="px-2 py-0.5 rounded-full font-semibold bg-red-500/20 text-red-400">🔴 Ph.5–8</span>
   </div>
 
   <!-- Tabs -->
   <div class="flex gap-1.5 mb-4 flex-wrap">
     <button onclick="showTab('gantt')"    class="tab-btn active px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-gantt">📊 Gantt</button>
-    <button onclick="showTab('engine')"   class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-engine">🔩 Engine Dev</button>
-    <button onclick="showTab('ds')"       class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-ds">🧬 Data Science</button>
-    <button onclick="showTab('phases')"   class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-phases">📋 CFD Phases</button>
+    <button onclick="showTab('phases')"   class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-phases">📋 Phases</button>
     <button onclick="showTab('path')"     class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-path">🔗 Critical Path</button>
     <button onclick="showTab('stack')"    class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-stack">⚙️ Tech Stack</button>
     <button onclick="showTab('risks')"    class="tab-btn px-3 py-1.5 rounded-lg text-xs font-medium border border-[var(--border)]" id="tab-risks">⚠️ Risks</button>
@@ -54,7 +52,7 @@
 
         <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
           <div class="font-medium text-[var(--foreground)] text-xs">Ph.0 Engine Dev</div>
-          <div class="gantt-bar bg-emerald-600 col-span-2 text-white">✓ FreeCAD + 9 cases</div>
+          <div class="gantt-bar bg-emerald-600 col-span-2 text-white">✓ FreeCAD</div>
           <div class="col-span-9"></div>
         </div>
 
@@ -68,43 +66,56 @@
         <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
           <div class="font-medium text-[var(--foreground)] text-xs">Ph.2 Rigid CFD</div>
           <div class="col-span-1"></div>
-          <div class="gantt-bar bg-green-500 col-span-2 text-white">✓ BDF2 + Windkessel</div>
+          <div class="gantt-bar bg-green-500 col-span-2 text-white">✓ BDF2+RC</div>
           <div class="col-span-8"></div>
         </div>
 
         <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
           <div class="font-medium text-[var(--foreground)] text-xs">Ph.3 Data Science</div>
           <div class="col-span-2"></div>
-          <div class="gantt-bar bg-green-500 col-span-2 text-white">✓ 20 NPZ scenarios</div>
+          <div class="gantt-bar bg-green-500 col-span-2 text-white">✓ 20 NPZ</div>
+          <div class="col-span-7"></div>
+        </div>
+
+        <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
+          <div class="font-medium text-[var(--foreground)] text-xs">  3.3 Markov Analysis</div>
+          <div class="col-span-2"></div>
+          <div class="gantt-bar bg-green-500 col-span-2 text-white">✓ Done</div>
           <div class="col-span-7"></div>
         </div>
 
         <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
           <div class="font-medium text-[var(--foreground)] text-xs">Ph.4 FSI Solver</div>
           <div class="col-span-2"></div>
-          <div class="gantt-bar bg-yellow-500 col-span-3 text-white">🔄 In Progress</div>
+          <div class="gantt-bar bg-yellow-500 col-span-3 text-white">🔄 Active</div>
           <div class="col-span-6"></div>
         </div>
 
         <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
           <div class="font-medium text-[var(--foreground)] text-xs">Ph.5 Patho Runs</div>
           <div class="col-span-4"></div>
-          <div class="gantt-bar bg-[var(--muted-foreground)]/20 border border-[var(--border)] col-span-3 text-[var(--muted-foreground)]">Planned</div>
-          <div class="col-span-4"></div>
+          <div class="gantt-bar bg-[var(--muted-foreground)]/20 border border-[var(--border)] col-span-2 text-[var(--muted-foreground)]">Planned</div>
+          <div class="col-span-5"></div>
         </div>
 
         <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
-          <div class="font-medium text-[var(--foreground)] text-xs">Ph.6 3D + SUPG</div>
+          <div class="font-medium text-[var(--foreground)] text-xs">Ph.6 SUPG+3D</div>
           <div class="col-span-5"></div>
           <div class="gantt-bar bg-[var(--muted-foreground)]/20 border border-[var(--border)] col-span-3 text-[var(--muted-foreground)]">Planned</div>
           <div class="col-span-3"></div>
         </div>
 
         <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
-          <div class="font-medium text-[var(--foreground)] text-xs">Ph.7 Reports</div>
+          <div class="font-medium text-[var(--foreground)] text-xs">Ph.7 Viz+Reports</div>
           <div class="col-span-7"></div>
           <div class="gantt-bar bg-[var(--muted-foreground)]/20 border border-[var(--border)] col-span-2 text-[var(--muted-foreground)]">Planned</div>
           <div class="col-span-2"></div>
+        </div>
+
+        <div class="grid items-center gap-1" style="grid-template-columns:180px repeat(11,1fr)">
+          <div class="font-medium text-[var(--foreground)] text-xs">Ph.8 MFEM Prod</div>
+          <div class="col-span-9"></div>
+          <div class="gantt-bar bg-[var(--muted-foreground)]/20 border border-[var(--border)] col-span-2 text-[var(--muted-foreground)]">Planned</div>
         </div>
 
       </div>
@@ -116,75 +127,21 @@
     </div>
   </div>
 
-  <!-- ══════════════ ENGINE DEV ══════════════ -->
-  <div id="sec-engine" class="section">
-    <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-      <h2 class="font-semibold text-sm">Phase 0: Engine Development (July 2026) ✅ COMPLETE</h2>
-      
-      <div class="border-l-2 border-emerald-600 pl-3">
-        <h3 class="font-medium text-xs mb-2">FreeCAD Parameterization</h3>
-        <p class="text-xs text-[var(--muted-foreground)]">Automated 2D/3D aorta geometry generation with configurable inlet, outlets, branches, wall thickness, and stenosis parameters.</p>
-      </div>
-
-      <div class="border-l-2 border-emerald-600 pl-3">
-        <h3 class="font-medium text-xs mb-2">Case Generation Engine</h3>
-        <p class="text-xs text-[var(--muted-foreground)]">Scripted workflow to batch-generate 9 fundamental scenarios for CFD/FSI testing.</p>
-      </div>
-
-      <div class="border-l-2 border-emerald-600 pl-3">
-        <h3 class="font-medium text-xs mb-2">Output</h3>
-        <p class="text-xs text-[var(--muted-foreground)]"><code>.step</code> + <code>.msh</code> files for direct import into DolfinX/FEniCSx solvers.</p>
-      </div>
-
-      <div class="bg-[var(--background)] rounded-lg p-3 text-xs">
-        <p class="font-medium mb-1">Files:</p>
-        <p class="text-[var(--muted-foreground)] font-mono">freecad_aorta_parameterized.py</p>
-        <p class="text-[var(--muted-foreground)] font-mono">case_generator.py</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════ DATA SCIENCE ══════════════ -->
-  <div id="sec-ds" class="section">
-    <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 space-y-3">
-      <h2 class="font-semibold text-sm">Phase 3: Data Parsing & Clinical Analytics (Sep 2026) ✅ COMPLETE</h2>
-      
-      <div class="border-l-2 border-green-600 pl-3">
-        <h3 class="font-medium text-xs mb-2">WHO / GBD / PubMed Data Collection</h3>
-        <p class="text-xs text-[var(--muted-foreground)]">Automated parser to extract cardiovascular risk factors, mortality statistics, and clinical parameters from public health databases.</p>
-      </div>
-
-      <div class="border-l-2 border-green-600 pl-3">
-        <h3 class="font-medium text-xs mb-2">20 Scenario NPZ Export</h3>
-        <p class="text-xs text-[var(--muted-foreground)]">Boundary condition datasets for 20 clinical scenarios: baseline, hypertension, diabetes, stenosis, thrombosis, combinations, etc.</p>
-      </div>
-
-      <div class="border-l-2 border-green-600 pl-3">
-        <h3 class="font-medium text-xs mb-2">Scenario Database</h3>
-        <p class="text-xs text-[var(--muted-foreground)]">12 core disease entities with WHO baseline parameters (compliance, resistance, heart rate, ejection fraction).</p>
-      </div>
-
-      <div class="border-l-2 border-green-600 pl-3">
-        <h3 class="font-medium text-xs mb-2">Dashboard & Reports</h3>
-        <p class="text-xs text-[var(--muted-foreground)]">Automated PDF generation with plots, tables, and clinical interpretation for each scenario.</p>
-      </div>
-
-      <div class="bg-[var(--background)] rounded-lg p-3 text-xs">
-        <p class="font-medium mb-1">Files:</p>
-        <p class="text-[var(--muted-foreground)] font-mono">thrombosis_data_fetcher.py</p>
-        <p class="text-[var(--muted-foreground)] font-mono">turbine_bc_*.npz (20 scenarios)</p>
-        <p class="text-[var(--muted-foreground)] font-mono">dashboard_*.pdf</p>
-      </div>
-    </div>
-  </div>
-
   <!-- ══════════════ CFD PHASES ══════════════ -->
   <div id="sec-phases" class="section">
     <div class="space-y-2">
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
         <div class="flex justify-between items-start mb-2">
-          <span class="font-medium text-xs">✅ Phase 1: Geometry & Mesh</span>
+          <span class="font-medium text-xs">✅ Phase 0: Engine Development</span>
+          <span class="text-[var(--muted-foreground)] text-xs">Jul 2026</span>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)]">FreeCAD parametrization + 9 case generator. Outputs: <code>.step</code> + <code>.msh</code> files.</p>
+      </div>
+
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
+        <div class="flex justify-between items-start mb-2">
+          <span class="font-medium text-xs">✅ Phase 1: Geometry &amp; Mesh</span>
           <span class="text-[var(--muted-foreground)] text-xs">Aug 2026</span>
         </div>
         <p class="text-xs text-[var(--muted-foreground)]">Parametric 2D aorta (3 branches) + FSI mesh (3683 nodes, 7792 elems). Tags: inlet, outlet_1–3, wall, interface.</p>
@@ -192,18 +149,22 @@
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
         <div class="flex justify-between items-start mb-2">
-          <span class="font-medium text-xs">✅ Phase 2: Rigid CFD (Pulsatile Flow)</span>
+          <span class="font-medium text-xs">✅ Phase 2: Rigid CFD (Pulsatile)</span>
           <span class="text-[var(--muted-foreground)] text-xs">Aug–Sep 2026</span>
         </div>
-        <p class="text-xs text-[var(--muted-foreground)]">IPCS + BDF2 solvers, Windkessel RC outlets. Time-varying elastance heart model. Mass error &lt; 1.5%. <code>aorta_bdf2.py</code></p>
+        <p class="text-xs text-[var(--muted-foreground)]">IPCS + BDF2 solvers, Windkessel RC outlets. Time-varying elastance heart model. Mass error &lt; 1.5%.</p>
       </div>
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
         <div class="flex justify-between items-start mb-2">
-          <span class="font-medium text-xs">✅ Phase 3: Data Science & Clinical Scenarios</span>
+          <span class="font-medium text-xs">✅ Phase 3: Clinical Data &amp; Scenarios</span>
           <span class="text-[var(--muted-foreground)] text-xs">Sep 2026</span>
         </div>
-        <p class="text-xs text-[var(--muted-foreground)]">20 NPZ scenario files (baseline, HTN, DM, stenosis, clot, combinations). WHO-calibrated parameters. Dashboard reports.</p>
+        <div class="text-xs text-[var(--muted-foreground)] space-y-1">
+          <p><strong>3.1 WHO/GBD Data Parsing:</strong> Automated collection of cardiovascular risk factors from public databases.</p>
+          <p><strong>3.2 NPZ Scenario Export:</strong> 20 clinical boundary condition datasets (baseline, HTN, DM, stenosis, clot, combinations).</p>
+          <p><strong>3.3 Markov Progression Analysis:</strong> Disease state transitions, mortality modeling, clinical progression pathways. (<code>markov_cfd_analysis.py</code>)</p>
+        </div>
       </div>
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
@@ -219,23 +180,31 @@
           <span class="font-medium text-xs">🔴 Phase 5: Pathological Scenario Runs</span>
           <span class="text-[var(--muted-foreground)] text-xs">Nov–Dec 2026</span>
         </div>
-        <p class="text-xs text-[var(--muted-foreground)]">Run 3+ clinical scenarios: baseline, hypertension, severe clot. Extract WSS, pressure, wall displacement. Comparison plots.</p>
+        <p class="text-xs text-[var(--muted-foreground)]">Run 3+ clinical scenarios: baseline, hypertension, severe clot. Extract WSS, pressure, wall displacement. Comparison plots. Integrate Markov predictions.</p>
       </div>
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
         <div class="flex justify-between items-start mb-2">
-          <span class="font-medium text-xs">🔴 Phase 6: Stabilization & Quality</span>
+          <span class="font-medium text-xs">🔴 Phase 6: Stabilization &amp; 3D</span>
           <span class="text-[var(--muted-foreground)] text-xs">Dec 2026–Feb 2027</span>
         </div>
-        <p class="text-xs text-[var(--muted-foreground)]">SUPG stabilization, Neo-Hookean wall mechanics, rounded geometry, performance profiling. Prepare for 3D upgrade.</p>
+        <p class="text-xs text-[var(--muted-foreground)]">SUPG stabilization, Neo-Hookean wall mechanics, rounded geometry, performance profiling. Acquire 3D aorta geometry.</p>
       </div>
 
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
         <div class="flex justify-between items-start mb-2">
-          <span class="font-medium text-xs">🔴 Phase 7: Visualization & Reports</span>
+          <span class="font-medium text-xs">🔴 Phase 7: Visualization &amp; Reports</span>
           <span class="text-[var(--muted-foreground)] text-xs">Feb–Mar 2027</span>
         </div>
-        <p class="text-xs text-[var(--muted-foreground)]">ParaView animations, PDF technical report, interactive HTML dashboard, comparison tables. Publication-ready format.</p>
+        <p class="text-xs text-[var(--muted-foreground)]">ParaView animations, PDF technical report, interactive HTML dashboard, comparison tables, Markov overlay plots.</p>
+      </div>
+
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-3">
+        <div class="flex justify-between items-start mb-2">
+          <span class="font-medium text-xs">🔴 Phase 8: Production FSI (MFEM)</span>
+          <span class="text-[var(--muted-foreground)] text-xs">Mar–Aug 2027</span>
+        </div>
+        <p class="text-xs text-[var(--muted-foreground)]">3D aorta import, MFEM monolithic FSI solver, full cardiac cycle runs, validation benchmarking.</p>
       </div>
 
     </div>
@@ -252,23 +221,23 @@
         <div class="ml-4">↓</div>
         <div>Phase 2 (Rigid CFD) ✅</div>
         <div class="ml-4">↓</div>
-        <div>Phase 3 (Data Science) ✅</div>
+        <div>Phase 3 (Clinical Data + Markov) ✅</div>
         <div class="ml-4">↓</div>
-        <div class="font-semibold text-yellow-400">Phase 4 (FSI Solver) 🔄 ACTIVE</div>
-        <div class="ml-4">↓ ← BLOCKING for Ph.5</div>
-        <div class="font-semibold text-red-400">Phase 5 (Pathological Runs)</div>
+        <div class="font-semibold text-yellow-400">Phase 4 (FSI Solver) 🔄 ACTIVE ← BLOCKING for Ph.5</div>
         <div class="ml-4">↓</div>
-        <div class="font-semibold text-red-400">Phase 6 (Stabilization)</div>
+        <div class="font-semibold text-red-400">Phase 5 (Pathological + Markov Analysis)</div>
         <div class="ml-4">↓</div>
-        <div class="font-semibold text-red-400">Phase 7 (Visualization)</div>
+        <div class="font-semibold text-red-400">Phase 6 (Stabilization + 3D)</div>
         <div class="ml-4">↓</div>
-        <div class="font-semibold text-red-400">Phase 8 (3D + Production)</div>
+        <div class="font-semibold text-red-400">Phase 7 (Visualization + Reports)</div>
+        <div class="ml-4">↓</div>
+        <div class="font-semibold text-red-400">Phase 8 (MFEM Production)</div>
         <div class="ml-4">↓</div>
         <div class="font-semibold text-cyan-400">🎯 DELIVERY (Q3 2027)</div>
       </div>
       <div class="mt-4 p-3 bg-[var(--background)] rounded-lg border border-yellow-500/30">
         <p class="text-xs font-semibold text-yellow-400">⚠️ Key Blocker:</p>
-        <p class="text-xs text-[var(--muted-foreground)] mt-1">Phase 4 FSI stability is the critical gate. Phase 5 cannot start until zero-order predictor + Aitken relaxation are validated on 3+ test cases.</p>
+        <p class="text-xs text-[var(--muted-foreground)] mt-1">Phase 4 FSI stability is the critical gate. Phase 5 cannot start until zero-order predictor + Aitken relaxation are validated. Phase 3.3 (Markov) feeds into Ph.5 output analysis.</p>
       </div>
     </div>
   </div>
@@ -280,7 +249,7 @@
       <div class="space-y-2 text-xs">
 
         <div class="flex justify-between items-center p-2 bg-[var(--background)] rounded-lg">
-          <span>Geometry & CAD</span>
+          <span>Geometry &amp; CAD</span>
           <span class="text-green-400 font-medium">FreeCAD 1.0 ✅</span>
         </div>
 
@@ -305,8 +274,8 @@
         </div>
 
         <div class="flex justify-between items-center p-2 bg-[var(--background)] rounded-lg">
-          <span>Data Science</span>
-          <span class="text-green-400 font-medium">Pandas + Matplotlib ✅</span>
+          <span>Data Science &amp; Markov</span>
+          <span class="text-green-400 font-medium">Pandas + Matplotlib + MarkovChain ✅</span>
         </div>
 
         <div class="flex justify-between items-center p-2 bg-[var(--background)] rounded-lg">
@@ -329,22 +298,27 @@
 
       <div class="bg-[var(--card)] border border-red-500/30 rounded-xl p-3">
         <p class="font-medium text-xs text-red-400 mb-1">🔴 HIGH: FSI Divergence on Pathological Cases (Phase 5)</p>
-        <p class="text-xs text-[var(--muted-foreground)]">Aitken relaxation may fail on severe stenosis / clot scenarios. Mitigation: pre-test with mild stenosis; use adaptive time-stepping.</p>
+        <p class="text-xs text-[var(--muted-foreground)]">Aitken relaxation may fail on severe stenosis / clot scenarios. Markov predictions may show low survival probability, requiring solver robustness. Mitigation: pre-test with mild stenosis; use adaptive time-stepping.</p>
       </div>
 
       <div class="bg-[var(--card)] border border-yellow-500/30 rounded-xl p-3">
         <p class="font-medium text-xs text-yellow-400 mb-1">🟡 MEDIUM: Slow FSI Convergence</p>
-        <p class="text-xs text-[var(--muted-foreground)]">Aitken ω may saturate at 0.80, causing slow inner loops. Mitigation: implement Anderson mixing as fallback.</p>
+        <p class="text-xs text-[var(--muted-foreground)]">Aitken ω may saturate at 0.80, causing slow inner loops. Blocks Phase 5 completion. Mitigation: implement Anderson mixing as fallback; profile solver performance.</p>
       </div>
 
       <div class="bg-[var(--card)] border border-yellow-500/30 rounded-xl p-3">
-        <p class="font-medium text-xs text-yellow-400 mb-1">🟡 MEDIUM: 3D Mesh Quality (Phase 8)</p>
+        <p class="font-medium text-xs text-yellow-400 mb-1">🟡 MEDIUM: Markov Data Completeness</p>
+        <p class="text-xs text-[var(--muted-foreground)]">WHO/GBD datasets may have gaps or outdated assumptions. Markov transition matrices may not reflect true clinical progression. Mitigation: validate against clinical literature; refine with real patient cohorts.</p>
+      </div>
+
+      <div class="bg-[var(--card)] border border-yellow-500/30 rounded-xl p-3">
+        <p class="font-medium text-xs text-yellow-400 mb-1">🟡 MEDIUM: 3D Mesh Quality (Phase 6/8)</p>
         <p class="text-xs text-[var(--muted-foreground)]">Real CT/MRI geometries may have sharp features, singularities. Mitigation: validate mesh early with quality metrics; smooth in preprocessing.</p>
       </div>
 
       <div class="bg-[var(--card)] border border-yellow-500/30 rounded-xl p-3">
-        <p class="font-medium text-xs text-yellow-400 mb-1">🟡 MEDIUM: MFEM Monolithic Solver Instability</p>
-        <p class="text-xs text-[var(--muted-foreground)]">Migrating from partitioned DolfinX to monolithic MFEM is risky. Mitigation: benchmark on 2D first; stage migration carefully.</p>
+        <p class="font-medium text-xs text-yellow-400 mb-1">🟡 MEDIUM: MFEM Monolithic Migration (Phase 8)</p>
+        <p class="text-xs text-[var(--muted-foreground)]">Porting from partitioned DolfinX to monolithic MFEM is risky. Markov-informed scenario selection may need solver tuning. Mitigation: benchmark on 2D first; stage migration carefully.</p>
       </div>
 
     </div>
@@ -361,6 +335,7 @@
           <li>• Confirm Phase 4 FSI stability on baseline case (50–100 steps)</li>
           <li>• Run quick test with clot_severe NPZ boundary conditions</li>
           <li>• Document any FSI convergence issues / time per step</li>
+          <li>• Review Markov transition matrices for clinical accuracy</li>
         </ul>
       </div>
 
@@ -370,6 +345,7 @@
           <li>• Begin Phase 5 planning: integrate NPZ files as inlet boundary conditions</li>
           <li>• Create test harness for multi-scenario batch runs</li>
           <li>• Set up CSV export pipeline for WSS / pressure / displacement</li>
+          <li>• Plan Markov overlay: disease progression vs. CFD hemodynamics</li>
         </ul>
       </div>
 
@@ -378,6 +354,7 @@
         <ul class="text-xs text-[var(--muted-foreground)] space-y-1">
           <li>• Execute Phase 5: run baseline, hypertension, clot_severe scenarios</li>
           <li>• Generate comparison plots (WSS, pressure, velocity)</li>
+          <li>• Generate Markov progression plots with CFD data overlay</li>
           <li>• Write preliminary clinical interpretation per scenario</li>
         </ul>
       </div>
@@ -388,6 +365,7 @@
           <li>• Launch Phase 6: SUPG stabilization + Neo-Hookean mechanics</li>
           <li>• Acquire 3D aorta geometry (CT/MRI data) for Phase 8</li>
           <li>• Evaluate MFEM / FEBio framework (licensing, integration)</li>
+          <li>• Validate Markov model against published clinical cohorts</li>
         </ul>
       </div>
 
