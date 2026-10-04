@@ -1,8 +1,6 @@
 # Global Model of Blood Circulation and Pathology
 
-**Portfolio project:** Blood pump CFD and aortic FSI in FEniCSx. Numerical modeling of blood flow and fluid-structure interaction with FEniCSx/DolfinX for Siemens Healthineers.
-
-![Blood Circulation CFD Analysis](image_1.png)
+**Portfolio project:** Blood pump CFD and aortic FSI in FEniCSx. Numerical modeling of blood flow and fluid-structure interaction with FEniCSx/DolfinX.
 
 ---
 
@@ -20,7 +18,7 @@ This portfolio project combines:
 
 - **Steady-state 3D geometry analysis:** Comparison of blade designs (N1, N2, N3) and staggered rows with mesh-independence checks (pressure drop, hemolysis, torque)
 - **Unsteady Navier-Stokes:** Validated on Kármán vortex street, extended to 3D pump
-- **2D rigid-wall aorta model:** 
+- **2D rigid-wall aorta model:**
   - 0D heart model at inlet
   - Windkessel outlets on all four branches
   - Clot simulation
@@ -50,9 +48,3 @@ This portfolio project combines:
 - **FEniCSx/DolfinX** – Finite element framework
 - **Python** – Primary development language
 - **CFD & FSI** – Cardiovascular flow modeling
-
----
-
-## Contact
-
-Portfolio project | Siemens Healthineers
