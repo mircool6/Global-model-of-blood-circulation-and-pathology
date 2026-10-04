@@ -1,7 +1,8 @@
 # Blood Pump CFD & Aortic FSI — Project Roadmap
 **Internal R&D Project**  
-**Project Start:** August 2026 | **Last Updated:** October 2026  
-**Stack:** Python · DolfinX 0.11 · PETSc · Gmsh · ParaView
+**Project Start:** July 2026 | **Last Updated:** October 2026  
+**Project Owner:** Artem Voitenko  
+**Stack:** Python · DolfinX 0.11 · PETSc · Gmsh · ParaView · FreeCAD
 
 ---
 
@@ -12,65 +13,99 @@ gantt
     title Blood Pump CFD & Aortic FSI Simulation — Detailed Roadmap
     dateFormat YYYY-MM-DD
     axisFormat %b %Y
-    
+
     section COMPLETED
-    Phase 1: Geometry & Mesh          :done, p1, 2026-08-01, 31d
-    Phase 2: Rigid CFD                :done, p2, 2026-08-15, 45d
-    Phase 3: 0D Pathophysiology       :done, p3, 2026-09-01, 31d
-    
+    Phase 0: Engine Development       :done, p0, 2026-07-01, 45d
+    Phase 1: Geometry & Mesh          :done, p1, 2026-08-15, 31d
+    Phase 2: Rigid CFD                :done, p2, 2026-09-01, 45d
+    Phase 3: Data Parsing & Analytics :done, p3, 2026-09-15, 45d
+
     section IN PROGRESS
-    Phase 4: FSI (Partitioned ALE)    :active, p4, 2026-09-15, 60d
-    
+    Phase 4: FSI (Partitioned ALE)    :active, p4, 2026-10-01, 60d
+
     section PLANNED
-    Phase 5: Pathological Runs        :crit, p5, 2026-11-01, 45d
-    Phase 6: Stabilization            :crit, p6, 2026-12-15, 60d
-    Phase 7: Visualization & Reports  :p7, 2027-02-01, 45d
-    Phase 8: 3D Upgrade & Production  :crit, p8, 2027-03-15, 90d
-    
+    Phase 5: Pathological Runs        :crit, p5, 2026-11-15, 45d
+    Phase 6: Stabilization            :crit, p6, 2026-12-30, 60d
+    Phase 7: Visualization & Reports  :p7, 2027-02-15, 45d
+    Phase 8: 3D Upgrade & Production  :crit, p8, 2027-03-30, 90d
+
+    section Detailed Subtasks (Phase 0 — Engine Development)
+    0.1: FreeCAD parameterization     :done, sub0_1, 2026-07-01, 15d
+    0.2: Case generation engine       :done, sub0_2, 2026-07-15, 20d
+    0.3: 9 simulation scenarios        :done, sub0_3, 2026-08-01, 10d
+
+    section Detailed Subtasks (Phase 1 — Geometry)
+    1.1: Base aorta scheme            :done, sub1_1, 2026-08-15, 15d
+    1.2: Refined mesh generation      :done, sub1_2, 2026-08-25, 10d
+    1.3: FSI mesh creation            :done, sub1_3, 2026-09-01, 6d
+
+    section Detailed Subtasks (Phase 2 — Rigid CFD)
+    2.1: IPCS / BDF2 solver           :done, sub2_1, 2026-09-01, 20d
+    2.2: Windkessel BCs               :done, sub2_2, 2026-09-15, 15d
+    2.3: Mass-error corrections       :done, sub2_3, 2026-09-25, 10d
+
+    section Detailed Subtasks (Phase 3 — Data Parsing & Analytics)
+    3.1: WHO / GBD / PubMed parser   :done, sub3_1, 2026-09-15, 15d
+    3.2: 20 NPZ scenario exports      :done, sub3_2, 2026-09-25, 10d
+    3.3: Markov progression analysis  :done, sub3_3, 2026-10-01, 10d
+    3.4: Dashboard & PDF reports      :done, sub3_4, 2026-10-05, 10d
+
     section Detailed Subtasks (Phase 4 — FSI)
-    4.1: Submesh extraction           :done, sub4_1, 2026-09-15, 10d
-    4.2: Interface DOF mapping (KDTree) :done, sub4_2, 2026-09-20, 15d
-    4.3: Aitken relaxation loop       :done, sub4_3, 2026-09-30, 15d
-    4.4: Zero-order predictor         :done, sub4_4, 2026-10-05, 10d
-    4.5: VTK export & visualization   :done, sub4_5, 2026-10-10, 10d
-    4.6: Detailed logging             :done, sub4_6, 2026-10-15, 5d
-    
+    4.1: Submesh extraction           :done, sub4_1, 2026-10-01, 10d
+    4.2: Interface DOF mapping        :done, sub4_2, 2026-10-08, 15d
+    4.3: Aitken relaxation loop       :done, sub4_3, 2026-10-18, 15d
+    4.4: Zero-order predictor         :done, sub4_4, 2026-10-28, 10d
+    4.5: VTK export & visualization   :done, sub4_5, 2026-11-01, 10d
+    4.6: Detailed logging             :done, sub4_6, 2026-11-08, 5d
+
     section Detailed Subtasks (Phase 5 — Pathological Runs)
-    5.1: Connect NPZ boundary conditions :crit, sub5_1, 2026-11-01, 15d
-    5.2: Run 3 scenarios (baseline/hypertension/clot) :crit, sub5_2, 2026-11-15, 20d
-    5.3: Extract WSS, pressure, displacement :sub5_3, 2026-12-01, 15d
-    5.4: Build comparison plots       :sub5_4, 2026-12-10, 10d
-    
+    5.1: Connect NPZ boundary conditions :crit, sub5_1, 2026-11-15, 15d
+    5.2: Run 3 scenarios (baseline/hypertension/clot) :crit, sub5_2, 2026-11-30, 20d
+    5.3: Extract WSS, pressure, displacement :sub5_3, 2026-12-15, 15d
+    5.4: Build comparison plots       :sub5_4, 2026-12-25, 10d
+
     section Detailed Subtasks (Phase 6 — Stabilization)
-    6.1: SUPG stabilization           :crit, sub6_1, 2026-12-15, 20d
-    6.2: Nonlinear wall mechanics     :crit, sub6_2, 2027-01-05, 30d
-    6.3: Smoother geometry (rounded)  :sub6_3, 2027-02-01, 20d
-    6.4: Performance profiling        :sub6_4, 2027-02-15, 15d
-    
+    6.1: SUPG stabilization           :crit, sub6_1, 2026-12-30, 20d
+    6.2: Nonlinear wall mechanics     :crit, sub6_2, 2027-01-20, 30d
+    6.3: Smoother geometry (rounded)  :sub6_3, 2027-02-15, 20d
+    6.4: Performance profiling        :sub6_4, 2027-03-01, 15d
+
     section Detailed Subtasks (Phase 7 — Visualization)
-    7.1: ParaView animations          :sub7_1, 2027-02-01, 20d
-    7.2: PDF report generation        :sub7_2, 2027-02-20, 15d
-    7.3: Interactive HTML dashboard   :sub7_3, 2027-03-05, 15d
-    7.4: Comparison tables & metrics  :sub7_4, 2027-03-15, 10d
-    
+    7.1: ParaView animations          :sub7_1, 2027-02-15, 20d
+    7.2: PDF report generation        :sub7_2, 2027-03-05, 15d
+    7.3: Interactive HTML dashboard   :sub7_3, 2027-03-20, 15d
+    7.4: Comparison tables & metrics  :sub7_4, 2027-04-01, 10d
+
     section Detailed Subtasks (Phase 8 — 3D & Production)
-    8.1: 3D aorta geometry import      :crit, sub8_1, 2027-03-15, 30d
-    8.2: MFEM / FEBio evaluation      :crit, sub8_2, 2027-04-15, 30d
-    8.3: Monolithic FSI solver        :crit, sub8_3, 2027-05-15, 45d
-    8.4: Large-scale runs (full cycle) :crit, sub8_4, 2027-07-01, 45d
-    8.5: Validation & benchmarking    :sub8_5, 2027-08-15, 30d
-    
-    milestone M1: Phase 4 Complete (FSI stable), 2026-11-01, 1d
-    milestone M2: Phase 5 Complete (3 scenarios), 2026-12-01, 1d
-    milestone M3: Phase 6 Complete (SUPG + Neo-Hookean), 2027-02-15, 1d
-    milestone M4: Phase 7 Complete (Visual reports), 2027-03-15, 1d
-    milestone M5: 3D model & MFEM ready, 2027-06-01, 1d
+    8.1: 3D geometry import           :crit, sub8_1, 2027-03-30, 30d
+    8.2: MFEM / FEBio evaluation      :crit, sub8_2, 2027-04-30, 30d
+    8.3: Monolithic FSI solver        :crit, sub8_3, 2027-05-30, 45d
+    8.4: Large-scale runs (full cycle) :crit, sub8_4, 2027-07-15, 45d
+    8.5: Validation & benchmarking    :sub8_5, 2027-08-30, 30d
+
+    milestone M0: Engine setup validated, 2026-08-15, 1d
+    milestone M1: Phase 4 Complete (FSI stable), 2026-12-01, 1d
+    milestone M2: Phase 5 Complete (3 scenarios), 2027-01-01, 1d
+    milestone M3: Phase 6 Complete (SUPG + Neo-Hookean), 2027-03-15, 1d
+    milestone M4: Phase 7 Complete (Visual reports), 2027-04-15, 1d
+    milestone M5: 3D model & MFEM ready, 2027-06-15, 1d
     milestone M6: DELIVERY — Production FSI, 2027-09-01, 1d
 ```
 
 ---
 
 ## Phase Overview & Status
+
+### ✅ **Phase 0: Engine Development** (COMPLETED — July 2026)
+
+| Item | Scope | Status |
+|------|-------|--------|
+| FreeCAD-based geometry engine | Parameterized geometry generation | ✅ DONE |
+| Simulation case generator | Multi-case scenario workflow | ✅ DONE |
+| Scenario family | 9 core cases for engine / pressure / flow studies | ✅ DONE |
+| **Result** | Automated setup for systematic CFD and FSI case generation | ✅ |
+
+---
 
 ### ✅ **Phase 1: Geometry & Mesh** (COMPLETED — August 2026)
 
@@ -97,25 +132,15 @@ gantt
 
 ---
 
-### ✅ **Phase 3: 0D Pathophysiology** (COMPLETED — September 2026)
+### ✅ **Phase 3: Data Parsing & Clinical Analytics** (COMPLETED — September 2026)
 
-| Scenario | File | Status | Output |
-|----------|------|--------|--------|
-| Baseline | `turbine_bc_0_baseline.npz` | ✅ DONE | Normal hemodynamics |
-| Mild hypertension | `turbine_bc_1_hypertension_mild.npz` | ✅ DONE | Elevated R_sys |
-| Hypertension | `turbine_bc_1_hypertension.npz` | ✅ DONE | High WSS trigger |
-| Diabetes (stiff arteries) | `turbine_bc_2_diabetes_stiff.npz` | ✅ DONE | Reduced C_ao |
-| Aortic stenosis | `turbine_bc_3_aortic_stenosis.npz` | ✅ DONE | High R_aortic |
-| Cholesterol stenosis | `turbine_bc_3_cholesterol_stenosis.npz` | ✅ DONE | Plaque blockage |
-| Severe combined | `turbine_bc_4_severe_combined.npz` | ✅ DONE | Multi-pathology |
-| WHO killer combo | `turbine_bc_4_who_killer_combo.npz` | ✅ DONE | HTN + DM + plaque |
-| Heart attack | `turbine_bc_5_heart_attack.npz` | ✅ DONE | Reduced ejection |
-| Stroke | `turbine_bc_6_stroke.npz` | ✅ DONE | Clot + low flow |
-| Cardiac arrest | `turbine_bc_7_cardiac_arrest.npz` | ✅ DONE | Minimal output |
-| Clot (mild/mod/sev) | `turbine_bc_clot_*.npz` | ✅ DONE | Thrombus progression |
-| Atrial fibrillation | `turbine_bc_clot_afib.npz` | ✅ DONE | Irregular rhythm |
-| **Analysis** | `markov_cfd_analysis.py` | ✅ DONE | Progression modeling |
-| **Dashboards** | `dashboard_*.pdf` | ✅ DONE | Visual reports |
+| Component | Scope | Status | Output |
+|-----------|-------|--------|--------|
+| WHO / GBD / PubMed parser | Clinical and risk-factor data ingestion | ✅ DONE | Structured dataset |
+| Scenario export | 20 NPZ boundary-condition files | ✅ DONE | `turbine_bc_*.npz` |
+| Markov analysis | Progression modeling and progression risk | ✅ DONE | `markov_cfd_analysis.py` |
+| Dashboard generation | PDF, reports, comparative plots | ✅ DONE | Visualization outputs |
+| **Result** | Clinical parameterization for simulation scenarios | ✅ |
 
 ---
 
@@ -183,13 +208,13 @@ MAX_INTERFACE_DISP = 2.0e-3 m (2 mm)
 
 | Task | Target | Timeline | Notes |
 |------|--------|----------|-------|
-| Connect NPZ boundary conditions | turbine_bc_*.npz → inlet in FSI solver | Nov 1–15 | Link Phase 3 to Phase 4 |
-| Run baseline | Normal aorta FSI | Nov 15–30 | Reference case |
-| Run hypertension | Elevated R_sys FSI | Nov 20–Dec 5 | High WSS |
-| Run clot_severe | Thrombus blockage FSI | Nov 25–Dec 10 | Low WSS, stagnation |
-| Export metrics | WSS, pressure, displacement to CSV | Dec 1–15 | Post-processing |
-| Build comparison plots | Matplotlib figures (baseline vs pathologies) | Dec 10–20 | Visual analysis |
-| Write clinical interpretation | Case-by-case summary | Dec 15–25 | Medical context |
+| Connect NPZ boundary conditions | turbine_bc_*.npz → inlet in FSI solver | Nov 15–30 | Link Phase 3 to Phase 4 |
+| Run baseline | Normal aorta FSI | Nov 30–Dec 10 | Reference case |
+| Run hypertension | Elevated R_sys FSI | Dec 1–15 | High WSS |
+| Run clot_severe | Thrombus blockage FSI | Dec 10–20 | Low WSS, stagnation |
+| Export metrics | WSS, pressure, displacement to CSV | Dec 15–30 | Post-processing |
+| Build comparison plots | Matplotlib figures (baseline vs pathologies) | Dec 20–Jan 5 | Visual analysis |
+| Write clinical interpretation | Case-by-case summary | Jan 5–15 | Medical context |
 
 ---
 
@@ -199,10 +224,10 @@ MAX_INTERFACE_DISP = 2.0e-3 m (2 mm)
 
 | Task | Technology | Timeline | Impact |
 |------|-----------|----------|--------|
-| SUPG stabilization | Streamline Upwind Petrov-Galerkin | Dec 15 – Jan 5 | Reduce numerical noise at high Re |
-| Nonlinear wall mechanics | Neo-Hookean hyperelasticity | Jan 5 – Feb 5 | Replace linear elasticity |
-| Smoother geometry | Rounded branch corners | Feb 1 – 15 | Eliminate velocity singularities |
-| Performance profiling | PETSc assembly, LU timing | Feb 15 – Mar 1 | Baseline for HPC scaling |
+| SUPG stabilization | Streamline Upwind Petrov-Galerkin | Dec 30 – Jan 20 | Reduce numerical noise at high Re |
+| Nonlinear wall mechanics | Neo-Hookean hyperelasticity | Jan 20 – Feb 20 | Replace linear elasticity |
+| Smoother geometry | Rounded branch corners | Feb 15 – Mar 1 | Eliminate velocity singularities |
+| Performance profiling | PETSc assembly, LU timing | Mar 1 – 15 | Baseline for HPC scaling |
 
 ---
 
@@ -212,11 +237,11 @@ MAX_INTERFACE_DISP = 2.0e-3 m (2 mm)
 
 | Deliverable | Tool | Timeline |
 |-------------|------|----------|
-| ParaView animations | `.avi` files per scenario | Feb 1–20 |
-| PDF technical report | Scheme description + results | Feb 20 – Mar 5 |
-| Interactive HTML dashboard | Web UI with plots/tables | Mar 5–15 |
-| Comparison metrics table | WSS, pressure, compliance | Mar 10–20 |
-| Presentation slides | Executive summary | Mar 15–25 |
+| ParaView animations | `.avi` files per scenario | Feb 15–Mar 5 |
+| PDF technical report | Scheme description + results | Mar 5–20 |
+| Interactive HTML dashboard | Web UI with plots/tables | Mar 20–Apr 1 |
+| Comparison metrics table | WSS, pressure, compliance | Apr 1–10 |
+| Presentation slides | Executive summary | Apr 10–20 |
 
 ---
 
@@ -226,22 +251,24 @@ MAX_INTERFACE_DISP = 2.0e-3 m (2 mm)
 
 | Task | Timeline | Deliverable |
 |------|----------|-------------|
-| 3D aorta geometry import (CT/MRI) | Mar 15 – Apr 15 | Realistic 3D model |
-| MFEM / FEBio evaluation | Apr 15 – May 15 | Monolithic FSI framework |
-| Monolithic FSI solver implementation | May 15 – Jun 30 | Production-ready code |
-| Large-scale runs (full T=0.833 s cardiac cycle) | Jul 1 – Aug 15 | Complete hemodynamic cycle |
-| Validation & benchmarking | Aug 15 – Sep 1 | Comparison vs in-vitro data |
+| 3D aorta geometry import (CT/MRI) | Mar 30 – Apr 30 | Realistic 3D model |
+| MFEM / FEBio evaluation | Apr 30 – May 30 | Monolithic FSI framework |
+| Monolithic FSI solver implementation | May 30 – Jul 15 | Production-ready code |
+| Large-scale runs (full T=0.833 s cardiac cycle) | Jul 15 – Aug 30 | Complete hemodynamic cycle |
+| Validation & benchmarking | Aug 30 – Sep 15 | Comparison vs in-vitro data |
 
 ---
 
 ## Critical Path & Dependencies
 
 ```
+Phase 0 (Engine Development) ✅
+    ↓
 Phase 1 (Geometry) ✅
     ↓
 Phase 2 (Rigid CFD) ✅
     ↓
-Phase 3 (0D Pathophysiology) ✅
+Phase 3 (Data Parsing & Analytics) ✅
     ↓
 Phase 4 (FSI — Partitioned) 🔄
     ├─→ Phase 5 (Pathological Runs) 🔴 ← BLOCKING
@@ -269,11 +296,12 @@ Phase 4 (FSI — Partitioned) 🔄
 
 | Milestone | Target Date | Criterion |
 |-----------|-------------|-----------|
-| **M1** Phase 4 stable FSI | Nov 1, 2026 | Zero-order predictor validated, Aitken ω ∈ [0.03, 0.80] |
-| **M2** Phase 5 complete (3 scenarios) | Dec 1, 2026 | WSS + pressure + displacement exported, plots done |
-| **M3** Phase 6 stabilization | Feb 15, 2027 | SUPG implemented, Neo-Hookean elastic wall works |
-| **M4** Phase 7 reports | Mar 15, 2027 | Interactive HTML + PDF dashboards ready |
-| **M5** 3D + MFEM ready | Jun 1, 2027 | 3D model imported, MFEM framework evaluated |
+| **M0** Engine setup validated | Aug 15, 2026 | FreeCAD engine + scenario workflow ready |
+| **M1** Phase 4 stable FSI | Dec 1, 2026 | Zero-order predictor validated, Aitken ω ∈ [0.03, 0.80] |
+| **M2** Phase 5 complete (3 scenarios) | Jan 1, 2027 | WSS + pressure + displacement exported, plots done |
+| **M3** Phase 6 stabilization | Mar 15, 2027 | SUPG implemented, Neo-Hookean elastic wall works |
+| **M4** Phase 7 reports | Apr 15, 2027 | Interactive HTML + PDF dashboards ready |
+| **M5** 3D + MFEM ready | Jun 15, 2027 | 3D model imported, MFEM framework evaluated |
 | **M6** 🎯 DELIVERY | Sep 1, 2027 | Production FSI, full cardiac cycle, validation complete |
 
 ---
@@ -282,10 +310,12 @@ Phase 4 (FSI — Partitioned) 🔄
 
 | Layer | Tool | Version | Status |
 |-------|------|---------|--------|
+| **Geometry / Parameterization** | FreeCAD | 1.0 | ✅ Active |
 | **Mesh** | Gmsh | 4.13 | ✅ Active |
 | **CFD/FSI** | DolfinX | 0.11 | ✅ Active |
 | **Linear Algebra** | PETSc | 3.25 | ✅ Active |
 | **0D Models** | Python/NumPy/SciPy | 3.11 | ✅ Active |
+| **Data Processing** | Pandas / NumPy / parsing scripts | current | ✅ Active |
 | **Visualization** | ParaView | 5.13 | ✅ Active |
 | **Production FSI** | MFEM | next | 🔴 Phase 8 |
 | **Tissue Mechanics** | FEBio | next | 🔴 Phase 8 |
@@ -329,6 +359,4 @@ Phase 4 (FSI — Partitioned) 🔄
 
 ---
 
-**Last Updated:** October 2026  
-**Project Owner:** Artem Voitenko  
 **Status:** On track for Q3 2027 delivery
