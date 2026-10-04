@@ -330,5 +330,5 @@ Phase 4 (FSI — Partitioned) 🔄
 ---
 
 **Last Updated:** October 2026  
-**Project Owner:** CFD / FSI Team  
+**Project Owner:** Artem Voitenko  
 **Status:** On track for Q3 2027 delivery
