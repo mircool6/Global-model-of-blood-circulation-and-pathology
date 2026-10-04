@@ -1,5 +1,5 @@
 # Blood Pump CFD & Aortic FSI — Project Roadmap
-**Siemens Portfolio Project**  
+**Internal R&D Project**  
 **Project Start:** August 2026 | **Last Updated:** October 2026  
 **Stack:** Python · DolfinX 0.11 · PETSc · Gmsh · ParaView
 
@@ -330,5 +330,5 @@ Phase 4 (FSI — Partitioned) 🔄
 ---
 
 **Last Updated:** October 2026  
-**Project Owner:** Siemens Portfolio CFD  
+**Project Owner:** CFD / FSI Team  
 **Status:** On track for Q3 2027 delivery
